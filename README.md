@@ -21,6 +21,7 @@
 ## Процесс запуска
 
 - Клонируем репозиторий с помощью: `git clone https://github.com/Rakhcha/GifTask.git`
+- Перед сборкой установить `appID` и `api_key` для внешних сервисов в `/src/main/resources/application.yml`
 - Переходим в папку с проектом и собираем пакет с помощью: `gradle build`
 - После сборки переходим в build\libs и запускаем проект с помощью: `java -jar AlphaTask-0.0.1-SNAPSHOT.jar`
 
