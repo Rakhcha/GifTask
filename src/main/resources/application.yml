@@ -1,0 +1,13 @@
+# Services Configure
+
+rateService:
+  name: open-exchange-rates
+  url: https://openexchangerates.org/api
+  appID: YOUR_ID
+  base: USD
+
+gifService:
+  name: giphy-api
+  url: https://api.giphy.com/v1/gifs
+  api_key: YOUR_KEY
+  rating: g
