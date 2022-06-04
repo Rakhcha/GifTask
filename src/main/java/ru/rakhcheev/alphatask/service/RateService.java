@@ -7,7 +7,10 @@ import ru.rakhcheev.alphatask.client.RateClient;
 import ru.rakhcheev.alphatask.model.rate.Rate;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Date;
+
 
 @Service
 public class RateService {
@@ -30,13 +33,9 @@ public class RateService {
     }
 
     public Rate getPreviousRate(String rateCode) {
-        String date = getPreviousDate();
+        String date = LocalDate.now().minusDays(1)
+                .format(new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd").toFormatter());
         return client.getPreviousRate(date, APP_ID, BASE_RATE, rateCode);
-    }
-
-    private String getPreviousDate() {
-        Date previousDate = new Date(new Date().getTime() - (24 * 3600000));
-        return new SimpleDateFormat("yyyy-MM-dd").format(previousDate);
     }
 
 
