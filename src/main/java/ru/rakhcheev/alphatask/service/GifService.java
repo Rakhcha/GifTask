@@ -22,7 +22,7 @@ public class GifService {
         this.client = client;
     }
 
-    public Gif getRandomGifById(String tag){
+    public Gif getRandomGifByTag(String tag){
         return client.getRandomGifByTag(API_KEY,tag,RATING);
     }
 

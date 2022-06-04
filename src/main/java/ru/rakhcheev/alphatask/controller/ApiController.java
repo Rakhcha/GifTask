@@ -27,8 +27,8 @@ public class ApiController {
         double nowRate = rateService.getLatestRate(rateCode).getRates().get(rateCode);
         double previousRate = rateService.getPreviousRate(rateCode).getRates().get(rateCode);
         return nowRate > previousRate
-                ? gifService.getRandomGifById("rich")
-                : gifService.getRandomGifById("broke");
+                ? gifService.getRandomGifByTag("rich")
+                : gifService.getRandomGifByTag("broke");
     }
 
 

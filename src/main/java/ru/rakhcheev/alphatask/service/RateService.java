@@ -6,10 +6,8 @@ import org.springframework.stereotype.Service;
 import ru.rakhcheev.alphatask.client.RateClient;
 import ru.rakhcheev.alphatask.model.rate.Rate;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatterBuilder;
-import java.util.Date;
 
 
 @Service
@@ -33,10 +31,22 @@ public class RateService {
     }
 
     public Rate getPreviousRate(String rateCode) {
-        String date = LocalDate.now().minusDays(1)
-                .format(new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd").toFormatter());
+        String date = getPreviousDate();
         return client.getPreviousRate(date, APP_ID, BASE_RATE, rateCode);
     }
+/*
+    public double getDifferenceRate(String rateCode){
+        double nowRate = getLatestRate(rateCode).getRates().get(rateCode);
+        double previousRate = getPreviousRate(rateCode).getRates().get(rateCode);
+        return nowRate - previousRate;
+    }*/
+
+    private String getPreviousDate(){
+        return LocalDate.now().minusDays(1)
+                .format(new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd").toFormatter());
+    }
+
+
 
 
 

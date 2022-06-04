@@ -17,5 +17,4 @@ public class Rate {
     @JsonProperty("rates")
     private Map<String,Double> rates;
 
-
 }
